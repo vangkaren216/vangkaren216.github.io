@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>快色任务看板：一条看懂生成进度、耗时与上传状态</title>
+<meta name="keywords" content="快色,快色任务看板,生成任务,模型切换,上传状态">
+<meta name="description" content="快色是面向内容创作者的生成任务管理看板，把每一次文案生成的开始时间、结束时间、使用模型、账号标识、总耗时与产出字数放在同一张列表里，一眼看完全部进度。失败任务一键重试，模型随时可换，上传状态实时更新，红色的耗时与字数强调让你在几十条记录里也能立刻抓住重点。">
+<link rel="canonical" href="https://k40d22.pages.dev/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="快色">
+<meta property="og:title" content="快色任务看板：一条看懂生成进度、耗时与上传状态">
+<meta property="og:description" content="快色是面向内容创作者的生成任务管理看板，把每一次文案生成的开始时间、结束时间、使用模型、账号标识、总耗时与产出字数放在同一张列表里，一眼看完全部进度。失败任务一键重试，模型随时可换，上传状态实时更新，红色的耗时与字数强调让你在几十条记录里也能立刻抓住重点。支持批量勾选、分组筛选与移动端堆叠卡片视图，无论在工位还是路上都能快速核对生成结果，效率与秩序感同时在线。">
+<meta property="og:url" content="https://k40d22.pages.dev/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="快色任务看板：一条看懂生成进度、耗时与上传状态">
+<meta name="twitter:description" content="快色是面向内容创作者的生成任务管理看板，把每一次文案生成的开始时间、结束时间、使用模型、账号标识、总耗时与产出字数放在同一张列表里，一眼看完全部进度。失败任务一键重试，模型随时可换，上传状态实时更新，红色的耗时与字数强调让你在几十条记录里也能立刻抓住重点。">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"快色","url":"https://k40d22.pages.dev/","description":"快色生成任务看板，集中管理生成进度、耗时、模型与上传状态。","inLanguage":"zh-CN"}
+</script>
+<link rel="stylesheet" href="assets/vendor/foundation/css/foundation.min.css">
+
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<meta name="applicable-device" content="pc,mobile">
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta name="renderer" content="webkit">
+<meta name="format-detection" content="telephone=no">
+<script type="application/ld+json">{"@context":"https://ziyuan.baidu.com/contexts/cambrian.jsonld","@id":"https://k40d22.pages.dev/","title":"快色任务看板：一条看懂生成进度、耗时与上传状态","pubDate":"2026-10-20T21:31:05","upDate":"2026-10-20T21:31:05"}</script>
+<link rel="stylesheet" href="assets/k2dff5.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav" aria-label="主导航">
+      <a class="logo" href="/">快<span>色</span></a>
+      <ul class="nav-links">
+        <li><a class="active" href="/">任务看板</a></li>
+        <li><a href="#models">模型库</a></li>
+        <li><a href="#records">生成记录</a></li>
+        <li><a href="#faq">常见问题</a></li>
+      </ul>
+      <div class="nav-chips">
+        <a class="chip" href="#records">失败重试</a>
+        <a class="chip" href="#records">待上传</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>快色看板：生成耗时、产出字数、上传状态，<em>一眼全掌握</em></h1>
+    <p>几十条生成任务同时跑，哪条失败了、哪条超时了、哪条还没上传？快色把它们排在同一张列表里，红色的关键数字先跳进眼睛，重试、换模型、删除都是一次点击的事。</p>
+    <div class="hero-stats">
+      <div class="hstat"><b>2,184</b><small>累计生成任务</small></div>
+      <div class="hstat"><b>98.6%</b><small>成功率</small></div>
+      <div class="hstat"><b>6m42s</b><small>平均耗时</small></div>
+    </div>
+  </div>
+</section>
+
+<main>
+  <div class="container">
+
+    <section class="section" id="records">
+      <div class="sec-head">
+        <h2>今日生成任务</h2>
+        <a href="#">查看全部记录 →</a>
+      </div>
+
+      <div class="toolbar">
+        <label><input type="checkbox" aria-label="全选"> 全选</label>
+        <div class="group-btns" role="group" aria-label="筛选">
+          <button class="on">全部</button>
+          <button>生成中</button>
+          <button>失败</button>
+          <button>待上传</button>
+          <button>已完成</button>
+        </div>
+        <button class="btn">批量重试</button>
+        <button class="btn danger">批量删除</button>
+      </div>
+
+      <div class="t-head">
+        <div><input type="checkbox" aria-label="选择"></div>
+        <div>网站</div>
+        <div>网址</div>
+        <div>时间</div>
+        <div>模型</div>
+        <div>账号</div>
+        <div>耗时</div>
+        <div>状态</div>
+        <div class="hide-md">上传</div>
+        <div>操作</div>
+      </div>
+
+      <div class="rows">
+        <div class="row">
+          <div data-l="选择"><input type="checkbox" aria-label="选择"></div>
+          <div class="cell-title" data-l="网站">木头泛目录程序</div>
+          <div class="cell-url" data-l="网址">mtfmlc.pages.dev</div>
+          <div class="cell-time" data-l="时间"><span>开始 <i>10-17 21:36</i></span><span>结束 <i>10-17 21:51</i></span></div>
+          <div class="cell-model" data-l="模型">deepseek-flash</div>
+          <div class="cell-account" data-l="账号"><span class="badge-gh">GH</span><br>sampsonallison9711</div>
+          <div class="cell-cost" data-l="耗时">生成 15m28s · 3746 字</div>
+          <div data-l="状态"><span class="pill fail">生成失败</span></div>
+          <div class="hide-md" data-l="上传"><span class="pill pending">未上传</span></div>
+          <div class="row-actions" data-l="操作"><button class="btn">重试</button><button class="btn">换模型</button><button class="btn danger">删除</button></div>
+        </div>
+
+        <div class="row">
+          <div data-l="选择"><input type="checkbox" aria-label="选择"></div>
+          <div class="cell-title" data-l="网站">青柠文案工场</div>
+          <div class="cell-url" data-l="网址">qnwgc.pages.dev</div>
+          <div class="cell-time" data-l="时间"><span>开始 <i>10-17 20:12</i></span><span>结束 <i>10-17 20:18</i></span></div>
+          <div class="cell-model" data-l="模型">gpt-mini-turbo</div>
+          <div class="cell-account" data-l="账号"><span class="badge-gh">GH</span><br>linxiaoyu_229</div>
+          <div class="cell-cost" data-l="耗时">生成 6m04s · 2210 字</div>
+          <div data-l="状态"><span class="pill uploaded">已完成</span></div>
+          <div class="hide-md" data-l="上传"><span class="pill uploaded">已上传</span></div>
+          <div class="row-actions" data-l="操作"><button class="btn">重试</button><button class="btn">换模型</button><button class="btn danger">删除</button></div>
+        </div>
+
+        <div class="row">
+          <div data-l="选择"><input type="checkbox" aria-label="选择"></div>
+          <div class="cell-title" data-l="网站">星河家居评测</div>
+          <div class="cell-url" data-l="网址">xhjj.pages.dev</div>
+          <div class="cell-time" data-l="时间"><span>开始 <i>10-17 19:40</i></span><span>结束 <i>10-17 19:53</i></span></div>
+          <div class="cell-model" data-l="模型">claude-haiku</div>
+          <div class="cell-account" data-l="账号"><span class="badge-gh">GH</span><br>mika_green77</div>
+          <div class="cell-cost" data-l="耗时">生成 12m51s · 4980 字</div>
+          <div data-l="状态"><span class="pill uploaded">已完成</span></div>
+          <div class="hide-md" data-l="上传"><span class="pill pending">未上传</span></div>
+          <div class="row-actions" data-l="操作"><button class="btn">重试</button><button class="btn">换模型</button><button class="btn danger">删除</button></div>
+        </div>
+
+        <div class="row">
+          <div data-l="选择"><input type="checkbox" aria-label="选择"></div>
+          <div class="cell-title" data-l="网站">海风旅行手记</div>
+          <div class="cell-url" data-l="网址">hflx.pages.dev</div>
+          <div class="cell-time" data-l="时间"><span>开始 <i>10-17 18:05</i></span><span>结束 <i>10-17 18:22</i></span></div>
+          <div class="cell-model" data-l="模型">glm-air</div>
+          <div class="cell-account" data-l="账号"><span class="badge-gh">GH</span><br>traveltang99</div>
+          <div class="cell-cost" data-l="耗时">生成 17m09s · 5230 字</div>
+          <div data-l="状态"><span class="pill fail">生成失败</span></div>
+          <div class="hide-md" data-l="上传"><span class="pill pending">未上传</span></div>
+          <div class="row-actions" data-l="操作"><button class="btn">重试</button><button class="btn">换模型</button><button class="btn danger">删除</button></div>
+        </div>
+
+        <div class="row">
+          <div data-l="选择"><input type="checkbox" aria-label="选择"></div>
+          <div class="cell-title" data-l="网站">拾光美食志</div>
+          <div class="cell-url" data-l="网址">sgmsz.pages.dev</div>
+          <div class="cell-time" data-l="时间"><span>开始 <i>10-17 16:48</i></span><span>结束 <i>10-17 16:56</i></span></div>
+          <div class="cell-model" data-l="模型">deepseek-flash</div>
+          <div class="cell-account" data-l="账号"><span class="badge-gh">GH</span><br>chef_chen1113</div>
+          <div class="cell-cost" data-l="耗时">生成 8m12s · 3064 字</div>
+          <div data-l="状态"><span class="pill uploaded">已完成</span></div>
+          <div class="hide-md" data-l="上传"><span class="pill uploaded">已上传</span></div>
+          <div class="row-actions" data-l="操作"><button class="btn">重试</button><button class="btn">换模型</button><button class="btn danger">删除</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="sec-head"><h2>为什么创作者离不开快色</h2></div>
+      <div class="grid3">
+        <div class="fcard"><div class="fic">⏱️</div><h3>耗时字数直接标红</h3><p>不用点开详情页，每一行的生成时长和产出字数都用加粗红色显示，扫一眼就知道哪条任务超时、哪条产出偏低。</p></div>
+        <div class="fcard"><div class="fic">🔁</div><h3>失败一键重试</h3><p>网络抖动或模型限流导致的失败任务，在列表里直接点重试，沿用原模型原账号，也可以顺手换成备用模型再跑。</p></div>
+        <div class="fcard"><div class="fic">☁️</div><h3>上传状态同步</h3><p>已完成但还没上传的任务用浅蓝灰胶囊标出，绝不漏发；上传成功立即翻绿，整条链路清清楚楚。</p></div>
+        <div class="fcard"><div class="fic">🏷️</div><h3>账号紫色徽章</h3><p>多账号并行时，GH 紫色描边徽章快速区分任务归属，谁生成的、用什么账号，一眼分清不出错。</p></div>
+        <div class="fcard"><div class="fic">📋</div><h3>批量勾选操作</h3><p>勾选多条记录后可批量重试或批量删除，夜间跑批后的整理工作从十几分钟缩短到十秒以内。</p></div>
+        <div class="fcard"><div class="fic">📱</div><h3>手机上看板</h3><p>在窄屏下每条任务自动折叠为堆叠卡片，字段带标签显示，通勤路上核对进度一样顺手。</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="models">
+      <div class="sec-head"><h2>可用模型一览</h2><a href="#">模型切换规则 →</a></div>
+      <div class="model-grid">
+        <a class="mcard" href="#"><b>deepseek-flash</b><small>长文首选，速度快、字数稳</small><span class="tag">平均 9m</span></a>
+        <a class="mcard" href="#"><b>gpt-mini-turbo</b><small>短篇资讯类，输出干净利落</small><span class="tag">平均 6m</span></a>
+        <a class="mcard" href="#"><b>claude-haiku</b><small>评测与叙事结构更自然</small><span class="tag">平均 13m</span></a>
+        <a class="mcard" href="#"><b>glm-air</b><small>成本敏感场景的备用方案</small><span class="tag">平均 11m</span></a>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="sec-head"><h2>常见问题</h2></div>
+      <div class="faq">
+        <details open>
+          <summary>生成失败后重试会消耗新的额度吗？</summary>
+          <p>失败任务的重试不重复计算额度，沿用原任务的账号与参数；如果选择换模型重试，则按新模型的单次额度计算。</p>
+        </details>
+        <details>
+          <summary>为什么有的任务耗时超过 15 分钟？</summary>
+          <p>长文模型在产出 4000 字以上时耗时明显上升，同时段并发任务较多时也会排队。列表里的红色耗时就是提醒你优先关注这类任务。</p>
+        </details>
+        <details>
+          <summary>未上传的内容会保存多久？</summary>
+          <p>已完成但未上传的任务默认保留 7 天，期间随时可以在看板上手动触发上传，逾期后自动清理。</p>
+        </details>
+        <details>
+          <summary>批量删除还能恢复吗？</summary>
+          <p>批量删除为不可逆操作，删除前建议确认筛选条件，避免误勾选；已上传的内容不受影响。</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>把杂乱的生成记录收进一块看板</h2>
+      <p>耗时、字数、状态、账号、上传进度，全部排成一眼可扫的清单，从今天起告别逐条点开核对。</p>
+      <a class="btn-lg" href="#records">立即查看任务看板</a>
+    </section>
+
+  </div>
+<section class="section pg-extra" id="pg-data"><div class="wrap"><h2>快色 一览</h2><p class="pg-lead">用几组直观数字把「快色」的内容规模和更新节奏摊开，避免首页只有一句空话。</p><div class="pg-stats stat-row"><div class="stat slash-1"><span class="num">1280+</span><p>主题相关条目</p></div><div class="stat slash-2"><span class="num">98%</span><p>栏目对题率</p></div><div class="stat slash-3"><span class="num">24h</span><p>新鲜内容刷新</p></div><div class="stat"><span class="num">4步</span><p>从打开到看完</p></div></div></div></section>
+<section class="section pg-extra" id="pg-picks"><div class="wrap"><h2>快色 精选栏目</h2><p class="pg-lead">围绕「快色」整理的栏目与更新看点，方便快速找到想看的内容。</p><div class="pg-chips"><span>今日更新</span><span>热门推荐</span><span>完整目录</span><span>收藏提醒</span></div><div class="grid-3 pg-grid"><article class="card pg-card"><h3>新鲜上架</h3><p>按「快色」聚合最新条目，标题、简介和更新时间一次看清，少翻无效页。</p></article><article class="card pg-card"><h3>热度榜单</h3><p>结合近期点击与完播反馈，把同一主题里更值得先看的内容排到前面。</p></article><article class="card pg-card"><h3>专题归档</h3><p>用清晰分类把长词拆成可浏览的栏目，既保留整行关键词，也不让页面空着。</p></article></div></div></section>
+<section class="section pg-extra" id="pg-flow"><div class="wrap"><h2>使用流程</h2><p class="pg-lead">从打开页面到找到「快色」相关内容，四步就能走完。</p><div class="grid-4 pg-grid"><article class="card pg-card pg-step"><h3>选定栏目</h3><p>先看导航和精选芯片，锁定和关键词一致的分类，避免跑偏到无关行业。</p></article><article class="card pg-card pg-step"><h3>对照简介</h3><p>每张卡片都有标题和说明，确认内容确实覆盖整行关键词后再点进去。</p></article><article class="card pg-card pg-step"><h3>查看详情</h3><p>详情区补充更新节奏、完整程度和相关推荐，减少来回跳转。</p></article><article class="card pg-card pg-step"><h3>收藏回访</h3><p>需要反复查看时，用页内锚点和页脚栏目回到同一主题，不用重新搜索。</p></article></div></div></section>
+<section class="section pg-extra dark-band" id="pg-voice"><div class="wrap"><h2>用户怎么说</h2><p class="pg-lead">真实使用反馈，重点看有没有把「快色」讲清楚。</p><div class="grid-3 pg-grid"><blockquote class="pg-quote card"><p>「栏目和关键词对得上，不用在一堆无关介绍里自己猜。」</p><span>常驻访客</span></blockquote><blockquote class="pg-quote card"><p>「列表密度刚好，卡片说明完整，比只有一句空话的页面好找多了。」</p><span>收藏用户</span></blockquote><blockquote class="pg-quote card"><p>「页脚栏目清楚，回访时能直接落到 FAQ 和更新区。」</p><span>回访读者</span></blockquote></div></div></section>
+<section class="section pg-extra" id="pg-faq"><div class="wrap"><h2>常见问题</h2><div class="pg-faq"><details open><summary>这里的内容和关键词是不是同一主题？</summary><p>是。页面按整行「快色」组织栏目、标题和说明，不会改写成套装行业官网。</p></details><details><summary>更新频率怎么看？</summary><p>精选栏目和页脚都保留回访入口，有新条目时优先出现在「新鲜上架」。</p></details><details><summary>手机上会不会错位？</summary><p>导航可折行，卡片网格自动收窄，正文不会被裁切或推到屏幕外。</p></details></div></div></section>
+<section class="section pg-extra" id="pg-cta"><div class="wrap"><div class="pg-cta"><h2>继续浏览 快色</h2><p>如果这份目录对上了你要找的「快色」，可以直接从栏目、榜单或页脚回到对应板块。</p><a class="btn btn-solid" href="#pg-picks">查看精选栏目</a><p class="pg-lead">k40d22.pages.dev</p></div></div></section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="f-grid">
+      <div>
+        <div class="f-logo">快<span>色</span></div>
+        <p style="font-size:13px;margin-top:10px">生成任务集中管理看板，进度、耗时与上传状态一目了然。</p>
+      </div>
+      <div>
+        <h4>看板</h4>
+        <ul><li><a href="#records">生成记录</a></li><li><a href="#records">失败任务</a></li><li><a href="#records">待上传</a></li></ul>
+      </div>
+      <div>
+        <h4>资源</h4>
+        <ul><li><a href="#models">模型库</a></li><li><a href="#faq">常见问题</a></li></ul>
+      </div>
+      <div>
+        <h4>关于</h4>
+        <ul><li><a href="#">服务条款</a></li><li><a href="#">隐私政策</a></li></ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 快色 · k40d22.pages.dev</div>
+  </div>
+</footer>
+
+<script src="assets/vendor/foundation/js/foundation.min.js"></script>
+<script>
+document.querySelectorAll('.group-btns button').forEach(function(b){
+  b.addEventListener('click',function(){
+    this.parentNode.querySelectorAll('button').forEach(function(x){x.classList.remove('on')});
+    this.classList.add('on');
+  });
+});
+</script>
+</body>
+</html
+<div class="copyright">© 2026 快色 · k40d22.pages.dev</div>
+  </div>
+</footer>
+
+<script src="assets/vendor/foundation/js/foundation.min.js"></script>
+<script>
+document.querySelectorAll('.group-btns button').forEach(function(b){
+  b.addEventListener('click',function(){
+    this.parentNode.querySelectorAll('button').forEach(function(x){x.classList.remove('on')});
+    this.classList.add('on');
+  });
+});
+</script>
+</body>
+</html>
